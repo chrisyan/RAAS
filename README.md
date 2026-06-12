@@ -50,13 +50,13 @@ These constants appear near the top of `scripts/run_eval.py` and `scripts/infer.
 
 | Constant | Default |
 |---|---|
-| `_DETECTRON2_DIR` | `/home/zhiranworkstation/raas/detectron2` |
+| `_DETECTRON2_DIR` | `/xxx/raas/detectron2` |
 | `DEFAULT_CONFIG` | `.../Mask2Former/configs/cityscapes/semantic-segmentation/swin/maskformer2_swin_large_IN21k_384_bs16_90k.yaml` |
 | `DEFAULT_WEIGHTS` | `.../Maskomaly/maskomaly/ckpt/model_final_17c1ee.pkl` |
-| `DEFAULT_OUTPUT_BASE` | `/media/zhiranworkstation/Expansion/1_gaiax/IV2026_anomaly_segmentation` |
+| `DEFAULT_OUTPUT_BASE` | `your_own_path` |
 | `DATASET_CONFIGS` | Per-dataset root paths |
 
-Also `sys.path.append('/home/zhiranworkstation/raas/Mask2Former')` is hardcoded inside each model file (`model_ori.py`, `model_id.py`, `model_ood.py`) — update these too.
+Also `sys.path.append('xxx/raas/Mask2Former')` is hardcoded inside each model file (`model_ori.py`, `model_id.py`, `model_ood.py`) — update these too.
 
 ## Architecture
 
@@ -131,7 +131,7 @@ We thank the authors of the following codebases, which this repository builds up
 If you use this work, please cite:
 
 ```bibtex
-@inproceedings{ackermann2023maskomaly,
+@inproceedings{xxx,
   title={xxx},
   author={xx},
   booktitle={x},
