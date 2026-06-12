@@ -117,3 +117,24 @@ All datasets return `(image, anomaly_gt, ignore, filename)`. Anomaly ground trut
 ### Metrics (`scripts/eval.py`)
 
 `get_scores(ground_truths, anomaly_probs, ignores, mode)` returns `(AP, AUROC, FPR@95, AUPR)`. `mode="accumulate"` (default) flattens all images together before scoring; `mode="image"` averages per-image scores.
+
+## Acknowledgements
+
+We thank the authors of the following codebases, which this repository builds upon:
+
+- [Maskomaly](https://github.com/jan-ackermann/Maskomaly) — anomaly segmentation with Mask2Former
+- [Mask2Former](https://github.com/facebookresearch/Mask2Former) — universal image segmentation
+- [detectron2](https://github.com/facebookresearch/detectron2) — object detection and segmentation framework
+
+## Citation
+
+If you use this work, please cite:
+
+```bibtex
+@inproceedings{ackermann2023maskomaly,
+  title={xxx},
+  author={xx},
+  booktitle={x},
+  year={xx}
+}
+```
