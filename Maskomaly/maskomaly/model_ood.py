@@ -1,6 +1,3 @@
-"""1. inside road polygon
-2. wihite list
-3. road qeury mask filter"""
 import os
 import sys
 import time

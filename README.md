@@ -128,7 +128,7 @@ We thank the authors of the following codebases, which this repository builds up
 
 ## Citation
 
-If you use this work, please cite:
+If you find our work useful please cite our paper:
 
 ```bibtex
 @inproceedings{xxx,
