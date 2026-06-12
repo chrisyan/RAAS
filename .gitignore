@@ -1,0 +1,69 @@
+# Model weights and checkpoints
+*.pth
+*.pkl
+*.pt
+*.bin
+*.ckpt
+*.h5
+*.hdf5
+*.caffemodel
+*.npz
+
+# Output and results
+output/
+outputs/
+results/
+runs/
+wandb/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg-link
+pip-wheel-metadata/
+*.pyc
+*.pyo
+
+# Datasets (large data files)
+datasets/coco/
+datasets/cityscapes/
+datasets/ade20k/
+datasets/lsun/
+datasets/imagenet/
+datasets/VOC*/
+datasets/*.zip
+datasets/*.tar
+datasets/*.tar.gz
+datasets/*.tar.bz2
+*.lmdb
+*.mdb
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+log/
+tb_logs/
+tensorboard/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Compiled extensions
+detectron2/**/*.so
+Mask2Former/**/*.so
