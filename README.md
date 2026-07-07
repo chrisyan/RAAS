@@ -1,6 +1,6 @@
-# README
+# RAAS
 
-## Project Overview
+## Overview
 
 RAAS is an anomaly segmentation research codebase built on top of Mask2Former and detectron2. It implements **Maskomaly** — three model variants that detect out-of-distribution objects in driving scenes using a Swin-L backbone trained on Cityscapes.
 
@@ -138,10 +138,13 @@ We thank the authors of the following codebases, which this repository builds up
 If you find our work useful please cite our paper:
 
 ```bibtex
-@inproceedings{xxx,
-  title={xxx},
-  author={xx},
-  booktitle={x},
-  year={xx}
+@misc{yan2026roadawareanomalysegmentationqueryguided,
+      title={Road-Aware Anomaly Segmentation with Query-Guided Polygons and CLIP in Autonomous Driving}, 
+      author={Zhiran Yan and Gordon Elger},
+      year={2026},
+      eprint={2607.04304},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2607.04304}, 
 }
 ```
