@@ -54,7 +54,6 @@ class BaseSegmentationModel(BaseModel):
         print(f"segmentation keys: {segmentation.keys()}")
         print(f"segmentation['sem_seg'] shape: {segmentation['sem_seg'].shape}")
 
-        # 打印 shape
         print(f"mask_cls_result shape: {mask_cls_result.shape}")
         print(f"mask_pred_result shape: {mask_pred_result.shape}")
         # Print the min and max values of soft_mask
@@ -88,44 +87,19 @@ class Maskomaly(BaseSegmentationModel):
     def get_soft_mask(self, image):
         mask_cls_result, mask_pred_result, _ = self.get_probs_and_seg(image)
 
-
-
-        # ✅ 保存所有 soft masks（新增）
         output_dir = "all_soft_masks"
         os.makedirs(output_dir, exist_ok=True)
         for i in range(mask_pred_result.shape[0]):
             soft_mask_single = (mask_pred_result[i] * 255).astype(np.uint8)
             cv2.imwrite(os.path.join(output_dir, f"soft_mask_{i:03d}.png"), soft_mask_single)
 
-            ...
 
-        #
         start_t = time.time()
         soft_mask = np.ones_like(mask_pred_result[0], dtype=np.float32)
         #
         # # create the anomalous mask based prediction
         soft_mask2 = np.zeros_like(mask_pred_result[0], dtype=np.float32)
 
-        # original_size = image.shape[:2]  # (H, W)
-        #
-        # mask_cls_result, mask_pred_result, _ = self.get_probs_and_seg(image)
-        #
-        # # === 将每个 mask_pred_result[ind] resize 回原图大小 ===
-        # N = mask_pred_result.shape[0]
-        # resized_pred_result = np.zeros((N, original_size[0], original_size[1]), dtype=np.float32)
-        #
-        # for i in range(N):
-        #     resized_pred_result[i] = cv2.resize(
-        #         mask_pred_result[i],
-        #         (original_size[1], original_size[0]),  # 注意顺序是 (W, H)
-        #         interpolation=cv2.INTER_LINEAR
-        #     )
-        #
-        # mask_pred_result = resized_pred_result  # 替换原始的预测结果
-        #
-        # # 然后你原来的 soft_mask 计算逻辑保持不变
-        # soft_mask = np.ones_like(mask_pred_result[0], dtype=np.float32)
-        # soft_mask2 = np.zeros_like(mask_pred_result[0], dtype=np.float32)
 
         for ind in [49, 31, 83, 32]: # masks as ranked by importance for predicting anomalies by SMIYC validation
             self.class_stats[int(np.max(mask_cls_result[ind]) * 10)] += 1
@@ -161,7 +135,6 @@ class Maskomaly(BaseSegmentationModel):
             soft_mask = np.minimum(soft_mask, neg)
 
         # interpolate the masks with lambda = 0.6, any lambda > 0.5 is fine!
-        # 归一化到 [0, 255] 之间并转为 uint8
         soft_mask_img = (soft_mask * 255).astype(np.uint8)
         soft_mask2_img = (soft_mask2 * 255).astype(np.uint8)
 
@@ -175,5 +148,5 @@ class Maskomaly(BaseSegmentationModel):
         soft_mask = cv2.resize(soft_mask, image.shape[:2][::-1], interpolation=cv2.INTER_AREA)
         self.times.append(time.time() - start_t)
         print(f"soft_mask shape: {soft_mask.shape}")
-        return soft_mask, mask_pred_result  # mask_pred_result 是 shape [100, H, W] 的 soft mask
+        return soft_mask, mask_pred_result 
 
