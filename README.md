@@ -2,7 +2,7 @@
 
 ## Overview
 
-RAAS is an anomaly segmentation research codebase built on top of Mask2Former and detectron2. It implements **Maskomaly** — three model variants that detect out-of-distribution objects in driving scenes using a Swin-L backbone trained on Cityscapes.
+RAAS is an image based anomaly segmentation algorithm built on top of Mask2Former and detectron2.
 
 <table>
   <tr>
